@@ -1,3 +1,6 @@
-.todo--complete p { text-decoration: line-through; }
+.todo--complete input { text-decoration: line-through; }
 
 .todo > * { display: inline-block; }
+
+.title {  }
+.title--readonly { border-color: transparent; }

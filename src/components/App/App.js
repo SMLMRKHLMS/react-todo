@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   render() {
-    
+
     const todos = this.context.getTodos()
 
     return (
