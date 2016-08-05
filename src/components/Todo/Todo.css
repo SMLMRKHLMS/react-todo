@@ -1,0 +1,3 @@
+.todo--complete p { text-decoration: line-through; }
+
+.todo > * { display: inline-block; }
