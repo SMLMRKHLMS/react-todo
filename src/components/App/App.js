@@ -24,10 +24,12 @@ class App extends Component {
     const { title } = this.state
     const { addTodo } = this.context
     if (title) { addTodo(title) }
+    this.setState({ title: '' })
   }
 
   render() {
 
+    const { title } = this.state;
     const todos = this.context.getTodos()
 
     return (
@@ -37,7 +39,8 @@ class App extends Component {
         </TodoList>
         <input
           onChange={this.onChange}
-          type="text" />
+          type="text"
+          value={title} />
         <button onClick={this.handleAddTodo} >Add Todo</button>
       </div>
     );

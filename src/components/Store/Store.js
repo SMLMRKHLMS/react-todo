@@ -11,6 +11,7 @@ const store = (Component) => class Store extends React.Component {
     deleteTodo: React.PropTypes.func,
     editTodo: React.PropTypes.func,
     getTodos: React.PropTypes.func,
+    toggleActive: React.PropTypes.func,
     toggleComplete: React.PropTypes.func
   }
 
@@ -19,6 +20,7 @@ const store = (Component) => class Store extends React.Component {
     deleteTodo: this.deleteTodo,
     editTodo: this.editTodo,
     getTodos: this.getTodos,
+    toggleActive: this.toggleActive,
     toggleComplete: this.toggleComplete
   })
 
@@ -28,15 +30,23 @@ const store = (Component) => class Store extends React.Component {
   }
 
   addTodo = (title) => {
-    const todo = { title, complete: false }
+    const todo = { title, active: false, complete: false }
     const todos = this.state.todos.concat(todo)
     this.setState({ todos })
   }
 
-  editTodo = (index, title) => {
+  editTodo = (index, { target: { value: title } }) => {
     const { todos } = this.state
     const todo = todos[index]
     todo.title = title
+    todos[index] = todo
+    this.setState({ todos })
+  }
+
+  toggleActive = (index) => {
+    const { todos } = this.state
+    const todo = todos[index]
+    todo.active = !todo.active
     todos[index] = todo
     this.setState({ todos })
   }
