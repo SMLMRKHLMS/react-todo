@@ -7,7 +7,6 @@ const Todo = ({
   title
 }, {
   deleteTodo,
-  editTodo,
   toggleComplete
 }) => (
   <li className={`todo ${ complete ? 'todo--complete' : '' }`}>
